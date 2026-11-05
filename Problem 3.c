@@ -3,7 +3,7 @@
 
 void printArray(int *arr, int n)
 {
-  /* Dereferencing where p is the number  */
+  /* Dereferencing where p is equal to the number of arrays  */
   int *p = arr;
     while (p < arr + n) {
         if (p != arr) printf(" ");
