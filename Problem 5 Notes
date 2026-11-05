@@ -1,0 +1,49 @@
+/*PATRON AND SARGADO, M-2L, Problem 5*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    char name[100];
+    int length = 0, words = 0, vowels = 0, i;
+    char c;
+    char *p;
+
+    printf("Enter full name: ");
+    fgets(name, sizeof(name), stdin);
+
+    /* length: loop until '\0', stripping the newline */
+    while (name[length] != '\0' && name[length] != '\n')
+        length++;
+    name[length] = '\0';
+
+    if (length > 0) words = 1;
+    for (i = 0; i < length; i++) {
+        c = name[i];
+        if (c == ' ') words++;
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+            c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')
+            vowels++;
+    }
+
+    printf("Length: %d\n", length);
+    printf("Words: %d\n", words);
+    printf("Vowels: %d\n", vowels);
+
+    /* initials: first letter of the string and any letter after a space */
+    printf("Initials: ");
+    for (i = 0; i < length; i++)
+        if (i == 0 || name[i - 1] == ' ')
+            printf("%c.", name[i]);
+    printf("\n");
+
+    /* reverse using a pointer that moves backward */
+    printf("Reversed: ");
+    p = name + length - 1;
+    while (p >= name) {
+        printf("%c", *p);
+        p--;
+    }
+    printf("\n");
+    return 0;
+}
