@@ -13,24 +13,27 @@ int main()
 
     printf("Enter number of scores: ");
     scanf("%d", &n);
-
+    /* Number of scores where negative integers and more than the MAX is invalid */
     if (n < 1 || n > MAX) {
         printf("Invalid number of scores.\n");
         return 0;
     }
-
+    /* Scores where all non-negative integers can be input */
     printf("Enter the scores: ");
     for (i = 0; i < n; i++)
         scanf("%d", &scores[i]);
-
+    
+    /* Scores where the highest and lowest scores shown in the output */
     highest = lowest = scores[0];
     for (i = 0; i < n; i++) {
         if (scores[i] > highest) highest = scores[i];
         if (scores[i] < lowest)  lowest  = scores[i];
         sum += scores[i];
     }
+    /* Average scores of the input scores */
     average = (double)sum / n;
-
+    
+    /* Number of scores that is above average */
     for (i = 0; i < n; i++)
         if (scores[i] > average) above++;
 
