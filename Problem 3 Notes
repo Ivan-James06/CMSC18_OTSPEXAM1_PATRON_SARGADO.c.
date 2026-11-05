@@ -1,4 +1,4 @@
-/*PATRON AND SARGADO, M-2L, Problem 2*/
+/*PATRON AND SARGADO, M-2L, Problem 3*/
 #include <stdio.h>
 
 /* No square brackets are used after the array declaration in main. */
