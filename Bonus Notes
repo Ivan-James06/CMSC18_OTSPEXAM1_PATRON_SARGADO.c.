@@ -1,3 +1,5 @@
+/*PATRON AND SARGADO, M-2L, Bonus*/
+
 #include <stdio.h>
 
 char toLower(char c)
