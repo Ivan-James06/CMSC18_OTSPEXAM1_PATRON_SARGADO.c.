@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+char toLower(char c)
+{
+    if (c >= 'A' && c <= 'Z')
+        return c + ('a' - 'A');
+    return c;
+}
+
+int main(void)
+{
+    char phrase[200];
+    char *left, *right;
+    int isPal = 1, len = 0;
+
+    printf("Enter phrase: ");
+    fgets(phrase, sizeof(phrase), stdin);
+
+    while (phrase[len] != '\0' && phrase[len] != '\n')
+        len++;
+    phrase[len] = '\0';
+
+    left = phrase;
+    right = phrase + len - 1;
+
+    while (left < right) {
+        while (left < right && *left == ' ')  left++;   /* skip spaces */
+        while (left < right && *right == ' ') right--;
+        if (toLower(*left) != toLower(*right)) {
+            isPal = 0;
+            break;
+        }
+        left++;
+        right--;
+    }
+
+    printf(isPal ? "PALINDROME\n" : "NOT A PALINDROME\n");
+    return 0;
+}
